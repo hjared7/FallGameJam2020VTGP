@@ -8,7 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
 {
 
     //Number of jumps that the player can do before landing on the ground.
-    public int jumpAmount = 2;
+    public int midairJumps = 1;
     //Velocity of the the player when it jumps.
     public float jumpSpeed = 4f;
     //Velocity of the character when walking.
@@ -18,7 +18,7 @@ public class PlayerBehaviour : MonoBehaviour
     private float horizontal;
     private float vertical;
     private bool jumped;
-    private int jumpCurrent;
+    private int currentJumps;
 
     void Awake()
     {
@@ -31,8 +31,14 @@ public class PlayerBehaviour : MonoBehaviour
         //Get player movement.
         horizontal = Input.GetAxisRaw("Horizontal");
 
+        //Check to see if the player is on the ground.
+        if (grounded())
+        {
+            currentJumps = 0;
+        }
+
         //Try to jump if we haven't already.
-        if (Input.GetKeyDown(KeyCode.Space) && !jumped)
+        if (Input.GetKeyDown(KeyCode.W) && !jumped)
         {
             jump();
         }
@@ -50,20 +56,25 @@ public class PlayerBehaviour : MonoBehaviour
         jumped = false;
     }
 
-    //First checks to see if the player is on the ground, and then jumps if they have any remaining.
+    //Jump.
     private void jump()
     {
+        //Ground jump doesn't use midair jumps.
         if (grounded())
         {
-            jumpCurrent = 0;
-        }
-
-        if (jumpCurrent < jumpAmount)
-        {
             jumped = true;
-            jumpCurrent++;
             vertical = jumpSpeed;
         }
+
+        //Midair jump.
+        else if (currentJumps < midairJumps)
+        {
+            jumped = true;
+            currentJumps++;
+            vertical = jumpSpeed;
+        }
+
+        //No jumps left.
         else
         {
             vertical = rb.velocity.y;
