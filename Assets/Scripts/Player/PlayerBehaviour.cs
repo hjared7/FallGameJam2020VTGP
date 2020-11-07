@@ -17,9 +17,14 @@ public class PlayerBehaviour : MonoBehaviour
     //Velocity of the character when walking.
     public float runSpeed = 100f;
 
+    //Bone to throw
+    public GameObject projectile;
+    public int projectileNumber = 3;
+
     private Rigidbody2D rb;
     private Animator anim;
-    private float horizontal;
+    private float moveDirection;
+    private float lookDirection = 1;
     private float vertical;
     private bool jumped;
     private int currentJumps;
@@ -34,8 +39,17 @@ public class PlayerBehaviour : MonoBehaviour
     void Update()
     {
         //Get player movement.
-        horizontal = Input.GetAxisRaw("Horizontal");
-        anim.SetFloat("Horizontal", horizontal);
+        moveDirection = Input.GetAxisRaw("Horizontal");
+        if(!moveDirection.Equals(0.0f))
+        {
+            lookDirection = moveDirection;
+            anim.SetBool("IsRunning", true);
+        }
+        else
+        {
+            anim.SetBool("IsRunning", false);
+        }
+        anim.SetFloat("Direction", lookDirection);
 
         //Check to see if the player is on the ground.
         if (grounded())
@@ -52,19 +66,29 @@ public class PlayerBehaviour : MonoBehaviour
         {
             vertical = rb.velocity.y;
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && projectileNumber > 0)
+        {
+            projectileNumber--;
+            GameObject projectileObject = Instantiate(projectile , rb.position + Vector2.up * 0.1f + Vector2.right * lookDirection, Quaternion.identity);
+            projectileObject.GetComponent<BoneBehaviour>().throwDirection = lookDirection;
+        }
     }
 
     //Physics stuff is in here.
     void FixedUpdate()
     {
         //Sets the player's new velocity.
-        rb.velocity = new Vector2(horizontal*runSpeed*Time.deltaTime, vertical);
+        rb.velocity = new Vector2(moveDirection*runSpeed*Time.fixedDeltaTime, vertical);
         jumped = false;
     }
 
     //Jump.
     private void jump()
     {
+
+        Debug.Log("Jumped");
+
         //Ground jump doesn't use midair jumps.
         if (grounded())
         {
@@ -90,7 +114,7 @@ public class PlayerBehaviour : MonoBehaviour
     //Thanks Damien :)
     private bool grounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, LayerMask.GetMask("Ground"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, LayerMask.GetMask("Ground"));
         return hit;
     }
 
