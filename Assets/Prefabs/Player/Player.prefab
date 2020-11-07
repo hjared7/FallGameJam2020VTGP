@@ -147,8 +147,11 @@ MonoBehaviour:
   ghostTrigger: 0
   jellyTrigger: 0
   midairJumps: 1
-  jumpSpeed: 7
-  runSpeed: 100
+  jumpSpeed: 10
+  runSpeed: 200
+  projectile: {fileID: 8164176807068099340, guid: 797319d1730110541a1ed76619463334,
+    type: 3}
+  projectileNumber: 3
 --- !u!95 &1474636261
 Animator:
   serializedVersion: 3
