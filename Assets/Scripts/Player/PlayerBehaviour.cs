@@ -65,6 +65,9 @@ public class PlayerBehaviour : MonoBehaviour
     //Jump.
     private void jump()
     {
+
+        Debug.Log("Jumped");
+
         //Ground jump doesn't use midair jumps.
         if (grounded())
         {
@@ -90,7 +93,7 @@ public class PlayerBehaviour : MonoBehaviour
     //Thanks Damien :)
     private bool grounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, LayerMask.GetMask("Ground"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, LayerMask.GetMask("Ground"));
         return hit;
     }
 
