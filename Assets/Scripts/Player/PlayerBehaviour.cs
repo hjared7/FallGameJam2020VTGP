@@ -6,7 +6,9 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-
+    //Checks to see if a player has entered a ghost's radius
+    public bool ghostTrigger;
+    
     //Number of jumps that the player can do before landing on the ground.
     public int midairJumps = 1;
     //Velocity of the the player when it jumps.
@@ -23,6 +25,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        ghostTrigger = false;
     }
 
     //Get any player inputs and get ready for the physics update.
@@ -86,5 +89,21 @@ public class PlayerBehaviour : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.3f, LayerMask.GetMask("Ground"));
         return hit;
+    }
+
+    //Ghost radius check
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Ghost"))
+        {
+            ghostTrigger = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ghost"))
+        {
+            ghostTrigger = false;
+        }
     }
 }
