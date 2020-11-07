@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GhostAI : MonoBehaviour
 {
-    float moveSpeed = 2;
+    float moveSpeed = 1;
     bool triggered = false;
 
     Vector3 direction;
@@ -27,10 +27,9 @@ public class GhostAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        triggered = player.GetComponent<PlayerBehaviour>().ghostTrigger;
         distance = Vector3.Distance(target.position, transform.position);
 
-        if (triggered && distance > 0.5)
+        if (player.GetComponent<PlayerBehaviour>().ghostTrigger && distance > 0.5)
         {
             direction = new Vector3((target.position.x - transform.position.x), target.position.y - transform.position.y);
             direction.x /= Mathf.Abs(direction.x);

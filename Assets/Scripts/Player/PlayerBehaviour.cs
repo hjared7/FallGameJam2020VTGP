@@ -7,7 +7,8 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     //Checks to see if a player has entered a ghost's radius
-    public bool ghostTrigger;
+    public bool ghostTrigger = false;
+    public bool jellyTrigger = false;
     
     //Number of jumps that the player can do before landing on the ground.
     public int midairJumps = 1;
@@ -25,7 +26,6 @@ public class PlayerBehaviour : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        ghostTrigger = false;
     }
 
     //Get any player inputs and get ready for the physics update.
@@ -87,7 +87,7 @@ public class PlayerBehaviour : MonoBehaviour
     //Thanks Damien :)
     private bool grounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.3f, LayerMask.GetMask("Ground"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, LayerMask.GetMask("Ground"));
         return hit;
     }
 
@@ -97,13 +97,22 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.CompareTag("Ghost"))
         {
             ghostTrigger = true;
+        }else if (other.CompareTag("Jellyfish"))
+        {
+            jellyTrigger = true;
         }
+
+        
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Ghost"))
         {
             ghostTrigger = false;
+        }
+        else if (other.CompareTag("Jellyfish"))
+        {
+            jellyTrigger = false;
         }
     }
 }
