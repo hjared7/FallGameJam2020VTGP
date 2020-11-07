@@ -18,6 +18,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float runSpeed = 100f;
 
     private Rigidbody2D rb;
+    private Animator anim;
     private float horizontal;
     private float vertical;
     private bool jumped;
@@ -26,6 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     //Get any player inputs and get ready for the physics update.
@@ -33,6 +35,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         //Get player movement.
         horizontal = Input.GetAxisRaw("Horizontal");
+        anim.SetFloat("Horizontal", horizontal);
 
         //Check to see if the player is on the ground.
         if (grounded())
