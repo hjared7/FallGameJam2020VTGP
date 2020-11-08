@@ -14,7 +14,7 @@ public class JellyfishAI : MonoBehaviour
 
     Vector3 direction;
 
-    float moveSpeed = 1;
+    float moveSpeed = 1.5f;
     float distance;
     
 

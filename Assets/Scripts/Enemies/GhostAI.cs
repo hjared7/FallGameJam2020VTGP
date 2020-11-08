@@ -28,13 +28,20 @@ public class GhostAI : MonoBehaviour
     {
         distance = Vector3.Distance(target.position, transform.position);
 
-        if (player.GetComponent<PlayerBehaviour>().ghostTrigger && distance > 0.5)
+        if (player.GetComponent<PlayerBehaviour>().ghostTrigger)
         {
-            direction = new Vector3((target.position.x - transform.position.x), target.position.y - transform.position.y);
-            direction.x /= Mathf.Abs(direction.x);
-            direction.y /= Mathf.Abs(direction.y);
-            
-            rb.MovePosition(transform.position + direction * moveSpeed*Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+        }
+
+        if (rb.velocity != new Vector2(0, 0))
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
+
+        if(distance < 0.4)
+        {
+            GameControl.control.health -= 1;
+            player.transform.position = player.GetComponent<PlayerBehaviour>().respawnPoint;
         }
     }
 }

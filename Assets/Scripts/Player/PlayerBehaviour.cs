@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    //Making the respawn point
+    public Vector3 respawnPoint = new Vector3(0,0,0);
+
     //Checks to see if a player has entered a ghost's radius
     public bool ghostTrigger = false;
     public bool jellyTrigger = false;
@@ -74,13 +77,16 @@ public class PlayerBehaviour : MonoBehaviour
         //Try to use Gravestones.
         if (Input.GetKeyDown(KeyCode.Q))
         {
+
             RaycastHit2D hit = Physics2D.Raycast(rb.position, new Vector2(lookDirection, 0f), 0.5f, LayerMask.GetMask("Gravestone"));
             if (hit.collider != null)
             {
+                respawnPoint = transform.position;
                 GravestoneBehaviour grave = hit.collider.GetComponent<GravestoneBehaviour>();
                 if (grave != null)
                 {
                     grave.ChangeDimension();
+                    respawnPoint = transform.position;
                 }
             }
         }
