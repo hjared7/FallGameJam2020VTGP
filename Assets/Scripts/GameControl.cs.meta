@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: af4f50745e5afb842929a5fd5b5f8b20
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - boneImage: {fileID: 2800000, guid: 503d2f26bb40c3044afb2904982fa029, type: 3}
+  - healthImage: {fileID: 2800000, guid: e0d9f8a9260917f46aed8ce5413eebab, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
