@@ -20,6 +20,10 @@ public class BoneBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         bc = GetComponent<BoxCollider2D>();
         timer = 0;
+
+        //The ten should be replaced with the players layermask
+        GameObject player = GameObject.FindWithTag("Player");
+        throwDirection = Mathf.Sign((transform.position - player.transform.position).x);
     }
 
     private void Update()
@@ -50,5 +54,6 @@ public class BoneBehaviour : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        Debug.Log(throwDirection);
     }
 }
