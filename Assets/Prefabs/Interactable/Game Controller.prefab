@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2429283087815569573}
   - component: {fileID: 2027543740}
   m_Layer: 0
-  m_Name: Grave Controller
+  m_Name: Game Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4f50745e5afb842929a5fd5b5f8b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 3
   ammo: 3
   dimensions:
   - {fileID: 0}

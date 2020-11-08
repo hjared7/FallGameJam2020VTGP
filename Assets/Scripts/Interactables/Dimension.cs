@@ -5,7 +5,6 @@ using UnityEngine;
 public class Dimension : MonoBehaviour
 {
     public GameObject player;
-    public Camera cam;
 
     public Color dimensionColor;
     public int midairJumps = 0;
@@ -14,11 +13,13 @@ public class Dimension : MonoBehaviour
 
     private PlayerBehaviour pb;
     private Rigidbody2D rb;
+    private Camera cam;
 
     void Awake()
     {
         pb = player.GetComponent<PlayerBehaviour>();
         rb = player.GetComponent<Rigidbody2D>();
+        cam = player.GetComponentInChildren<Camera>();
     }
 
     public void Activate()
