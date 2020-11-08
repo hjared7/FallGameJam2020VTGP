@@ -11,15 +11,11 @@ public class Dimension : MonoBehaviour
     public int midairJumps = 0;
     public float jumpSpeed = 6f;
     public float gravity = 1f;
+    public AudioClip music;
 
     private PlayerBehaviour pb;
     private Rigidbody2D rb;
-
-    void Awake()
-    {
-        pb = player.GetComponent<PlayerBehaviour>();
-        rb = player.GetComponent<Rigidbody2D>();
-    }
+    private AudioSource aus;
 
     public void Activate()
     {
@@ -31,10 +27,17 @@ public class Dimension : MonoBehaviour
         {
             rb = player.GetComponent<Rigidbody2D>();
         }
+        if (aus == null)
+        {
+            aus = player.GetComponentInChildren<AudioSource>();
+        }
+
         cam.backgroundColor = dimensionColor;
         pb.midairJumps = this.midairJumps;
         pb.jumpSpeed = this.jumpSpeed;
         rb.gravityScale = gravity;
+        aus.clip = music;
+        aus.Play();
     }
 
 
