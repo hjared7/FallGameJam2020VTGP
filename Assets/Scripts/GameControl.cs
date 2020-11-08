@@ -76,4 +76,9 @@ public class GameControl : MonoBehaviour
             dimensions[currentDimension].GetComponent<Dimension>().Activate();
         }
     }
+
+    public bool IsDimension(int dim)
+    {
+        return (dim == (currentDimension + 1));
+    }
 }
