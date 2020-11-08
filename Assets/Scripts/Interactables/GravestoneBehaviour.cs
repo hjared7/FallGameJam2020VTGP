@@ -5,6 +5,7 @@ using UnityEngine;
 public class GravestoneBehaviour : MonoBehaviour
 {
 
+    //This must be the object with the GraveController component in the scene.
     public GameObject graveController;
 
     private GraveController gc;

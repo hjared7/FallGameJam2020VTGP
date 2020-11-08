@@ -5,11 +5,15 @@ using UnityEngine;
 public class GraveController : MonoBehaviour
 {
 
+    // Array that holds all of the dimensions. Each dimension should be an empty
+    // GameObject that has all of the dimensions assests as it's children.
     public GameObject[] dimensions;
 
     public int availableDimensions = 1;
     public int currentDimension = 0;
 
+
+    //Sets all dimensions accept for the current one to Not Active.
     void Awake()
     {
         for(int i = 0; i < dimensions.Length; i++)

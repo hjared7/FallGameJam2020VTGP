@@ -64,8 +64,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Enemies\GhostAI.cs" />
     <Compile Include="Assets\Scripts\Enemies\JellyfishAI.cs" />
+    <Compile Include="Assets\Scripts\GameControl.cs" />
     <Compile Include="Assets\Scripts\Interactables\GraveController.cs" />
     <Compile Include="Assets\Scripts\Interactables\GravestoneBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Menus\AmmoLabelScript.cs" />
+    <Compile Include="Assets\Scripts\Menus\HealthLabelScript.cs" />
     <Compile Include="Assets\Scripts\Menus\MainMenuScript.cs" />
     <Compile Include="Assets\Scripts\Player\BoneBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBehaviour.cs" />

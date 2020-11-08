@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2104571958}
     m_Modifications:
+    - target: {fileID: 7566033418791848168, guid: 22fed25efa287b249b5c425e9ac0a516,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7566033418791848169, guid: 22fed25efa287b249b5c425e9ac0a516,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -262,6 +267,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pushable Box (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 761622006899002604, guid: fdfff69c3e505a041a7da9d032298bbc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Solid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfff69c3e505a041a7da9d032298bbc, type: 3}
@@ -800,6 +810,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pushable Box (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 761622006899002604, guid: fdfff69c3e505a041a7da9d032298bbc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Solid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfff69c3e505a041a7da9d032298bbc, type: 3}
 --- !u!4 &1926606457 stripped
@@ -920,6 +935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pushable Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 761622006899002604, guid: fdfff69c3e505a041a7da9d032298bbc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Solid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdfff69c3e505a041a7da9d032298bbc, type: 3}

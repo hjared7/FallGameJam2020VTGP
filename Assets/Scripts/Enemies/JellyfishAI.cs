@@ -8,12 +8,15 @@ public class JellyfishAI : MonoBehaviour
     Transform target;
     Rigidbody2D rb;
 
+    public Transform whatTheFuck;
+
+    RaycastHit2D hit;
+
     Vector3 direction;
 
     float moveSpeed = 1;
     float distance;
-
-    RaycastHit2D[] hits;
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -26,15 +29,16 @@ public class JellyfishAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hits = Physics2D.RaycastAll(transform.position, target.position);
-        if (hits[0].transform.tag != "")
+        Debug.DrawRay(transform.position, target.position - transform.position);
+        whatTheFuck = Physics2D.Raycast(transform.position, target.position - transform.position).transform;
+        if (Physics2D.Raycast(transform.position, target.position - transform.position).transform.tag != "Solid")
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed*Time.deltaTime);
         }
 
-        //if(rb.velocity != new Vector2(0, 0))
-        //{
-            //rb.velocity = new Vector2(0, 0);
-        //}
+        if(rb.velocity != new Vector2(0, 0))
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
     }
 }
