@@ -7,6 +7,7 @@ TagManager:
   - Ghost
   - Jellyfish
   - Solid
+  - Pickup
   layers:
   - Default
   - TransparentFX
