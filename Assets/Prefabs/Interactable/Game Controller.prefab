@@ -48,4 +48,5 @@ MonoBehaviour:
   dimensions:
   - {fileID: 0}
   - {fileID: 0}
+  hurtSFX: {fileID: 8920895122561828634, guid: b833829f896244b408d1ddd23d457d00, type: 3}
   availableDimensions: 2

@@ -17,6 +17,8 @@ public class GameControl : MonoBehaviour
     // GameObject that has all of the dimensions assests as it's children.
     public GameObject[] dimensions;
 
+    public GameObject hurtSFX;
+
     //Track dimension information.
     public int availableDimensions = 1;
     private int currentDimension = 0;
@@ -59,6 +61,7 @@ public class GameControl : MonoBehaviour
         }
         else
         {
+            Instantiate(hurtSFX, player.transform.position, Quaternion.identity);
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Jellyfish");
             for(int i = 0; i < enemies.Length; i++)
             {

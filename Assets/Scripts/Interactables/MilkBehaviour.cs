@@ -8,6 +8,7 @@ public class MilkBehaviour : MonoBehaviour
     public float frequency = 0.5f;
     public float amplitude = 1f;
     public GameObject particles;
+    public GameObject SFX;
 
     private Vector3 tempPos;
     private Vector3 originalPos;
@@ -31,6 +32,7 @@ public class MilkBehaviour : MonoBehaviour
         {
             GameControl.control.ammo+= bonesGiven;
             Instantiate(particles, transform.position, Quaternion.identity);
+            Instantiate(SFX, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
