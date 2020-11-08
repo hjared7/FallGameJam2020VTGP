@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class FazePlatforms : MonoBehaviour
 {
-    public GameObject fazeTiles;
+    public GameObject fazeTilesA;
+    public GameObject fazeTilesB;
 
-    float timer = 2f;
+    float timer = 2.5f;
     bool swap;
-    bool visible = true;
+    bool visibleA = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,19 +28,21 @@ public class FazePlatforms : MonoBehaviour
             }
             if (timer <= 0f)
             {
-                swap = !visible;
+                swap = !visibleA;
                 timer = 2f;
             }
 
-            if (visible != swap)
+            if (visibleA != swap)
             {
-                fazeTiles.SetActive(swap);
-                visible = swap;
+                fazeTilesA.SetActive(swap);
+                fazeTilesB.SetActive(!swap);
+                visibleA = swap;
             }
         }
         else
         {
-            fazeTiles.SetActive(false);
+            fazeTilesA.SetActive(false);
+            fazeTilesB.SetActive(false);
         }
             
     }
