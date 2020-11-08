@@ -13,12 +13,10 @@ public class BoneBehaviour : MonoBehaviour
     public float throwDirection;
 
     Rigidbody2D rb;
-    BoxCollider2D bc;
     private float timer;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        bc = GetComponent<BoxCollider2D>();
         timer = 0;
 
         //The ten should be replaced with the players layermask
@@ -32,15 +30,18 @@ public class BoneBehaviour : MonoBehaviour
     }
 
     // Basic collision logic.
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("yo");
         if(collision.gameObject.layer == 8)
         {
+            Debug.Log("ground");
             Destroy(this.gameObject);
         }
         
         else if(collision.gameObject.tag == "Jellyfish")
         {
+            Debug.Log("jelly");
             //Remove enemy health or destroy them
             Destroy(collision.gameObject);
             Destroy(this.gameObject);
@@ -54,6 +55,5 @@ public class BoneBehaviour : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        Debug.Log(throwDirection);
     }
 }
