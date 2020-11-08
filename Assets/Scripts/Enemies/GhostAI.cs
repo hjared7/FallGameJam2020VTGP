@@ -48,8 +48,7 @@ public class GhostAI : MonoBehaviour
 
         if(distance < 0.4)
         {
-            GameControl.control.health -= 1;
-            player.transform.position = player.GetComponent<PlayerBehaviour>().respawnPoint;
+            GameControl.control.Damage(player);
         }
     }
 
