@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameControl : MonoBehaviour
 {
@@ -44,6 +45,11 @@ public class GameControl : MonoBehaviour
                 dimensions[i].GetComponent<Dimension>().Activate();
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        //Die here?
     }
 
     public void SwitchDimension()

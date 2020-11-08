@@ -29,7 +29,7 @@ public class MilkBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
-            GameControl.control.health++;
+            GameControl.control.ammo+= bonesGiven;
             Instantiate(particles, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
