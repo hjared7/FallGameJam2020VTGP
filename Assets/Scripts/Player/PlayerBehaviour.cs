@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//Benjamin Schmidt 11/06/2020
+//Benjamin Schmidt 11/07/2020
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -67,11 +67,24 @@ public class PlayerBehaviour : MonoBehaviour
             vertical = rb.velocity.y;
         }
 
+        //Throw bone
         if (Input.GetKeyDown(KeyCode.Space) && projectileNumber > 0)
         {
-            projectileNumber--;
-            GameObject projectileObject = Instantiate(projectile , rb.position + Vector2.up * 0.1f + Vector2.right * lookDirection, Quaternion.identity);
-            projectileObject.GetComponent<BoneBehaviour>().throwDirection = lookDirection;
+            launch();
+        }
+
+        //Try to use Gravestones.
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rb.position, new Vector2(lookDirection, 0f), 0.5f, LayerMask.GetMask("Gravestone"));
+            if (hit.collider != null)
+            {
+                GravestoneBehaviour grave = hit.collider.GetComponent<GravestoneBehaviour>();
+                if (grave != null)
+                {
+                    grave.ChangeDimension();
+                }
+            }
         }
     }
 
@@ -83,12 +96,17 @@ public class PlayerBehaviour : MonoBehaviour
         jumped = false;
     }
 
+    //Throw bone
+    private void launch()
+    {
+        projectileNumber--;
+        GameObject projectileObject = Instantiate(projectile, rb.position + Vector2.up * 0.1f + Vector2.right * lookDirection, Quaternion.identity);
+        projectileObject.GetComponent<BoneBehaviour>().throwDirection = lookDirection;
+    }
+
     //Jump.
     private void jump()
     {
-
-        Debug.Log("Jumped");
-
         //Ground jump doesn't use midair jumps.
         if (grounded())
         {
