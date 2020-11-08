@@ -19,7 +19,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     //Bone to throw
     public GameObject projectile;
-    public int projectileNumber = 3;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -68,7 +67,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         //Throw bone
-        if (Input.GetKeyDown(KeyCode.Space) && projectileNumber > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && GameControl.control.ammo > 0)
         {
             launch();
         }
@@ -100,7 +99,7 @@ public class PlayerBehaviour : MonoBehaviour
     //Throw bone
     private void launch()
     {
-        projectileNumber--;
+        GameControl.control.ammo--;
         GameObject projectileObject = Instantiate(projectile, rb.position + Vector2.up * 0.1f + Vector2.right * lookDirection, Quaternion.identity);
         projectileObject.GetComponent<BoneBehaviour>().throwDirection = lookDirection;
     }
