@@ -47,9 +47,13 @@ public class GameControl : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        //Die here?
+        if (health <= 0)
+        {
+            health = 1;
+            SceneManager.LoadScene(2);
+        }
     }
 
     public void SwitchDimension()
