@@ -18,8 +18,9 @@ public class HurtPlayer : MonoBehaviour
         if(collision.transform.tag == "Player")
         {
             foundPlayer = true;
-            player.transform.position = player.GetComponent<PlayerBehaviour>().respawnPoint;
-            GameControl.control.health -= 1;
+
+            //Compartmentalised some stuff to fix graphics.
+            GameControl.control.Damage(player);
         }
     }
 }

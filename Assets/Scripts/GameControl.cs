@@ -47,12 +47,19 @@ public class GameControl : MonoBehaviour
         }
     }
 
-    void Update()
+
+    public void Damage(GameObject player)
     {
+        GameControl.control.health -= 1;
         if (health <= 0)
         {
             health = 1;
             SceneManager.LoadScene(2);
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            player.transform.position = player.GetComponent<PlayerBehaviour>().respawnPoint;
         }
     }
 
