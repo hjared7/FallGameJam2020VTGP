@@ -24,18 +24,17 @@ public class JellyfishAI : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         hits = Physics2D.RaycastAll(transform.position, target.position);
-        if (!hits[0].transform.CompareTag("Solid"))
+        if (hits[0].transform.tag != "")
         {
-            distance = Vector3.Distance(target.position, transform.position);
-            
-            direction = new Vector3((target.position.x - transform.position.x), target.position.y - transform.position.y);
-            direction.x /= Mathf.Abs(direction.x);
-            direction.y /= Mathf.Abs(direction.y);
-
-            rb.MovePosition(transform.position + direction.normalized * moveSpeed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position, moveSpeed*Time.deltaTime);
         }
+
+        //if(rb.velocity != new Vector2(0, 0))
+        //{
+            //rb.velocity = new Vector2(0, 0);
+        //}
     }
 }
