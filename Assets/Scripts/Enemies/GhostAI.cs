@@ -6,19 +6,21 @@ public class GhostAI : MonoBehaviour
 {
     float moveSpeed = 1;
 
-    Vector3 direction;
     float distance;
 
     Rigidbody2D rb;
-    Transform transform;
     Transform target;
     GameObject player;
+
+    private Vector3 pos;
+    private bool resp;
 
     // Start is called before the first frame update
     void Awake()
     {
+        resp = false;
+        pos = transform.position;
         rb = GetComponent<Rigidbody2D>();
-        transform = GetComponent<Transform>();
         player = GameObject.FindWithTag("Player");
         target = player.GetComponent<Transform>();
     }
@@ -26,6 +28,12 @@ public class GhostAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (resp)
+        {
+            transform.position = pos;
+            resp = false;
+        }
+
         distance = Vector3.Distance(target.position, transform.position);
 
         if (player.GetComponent<PlayerBehaviour>().ghostTrigger)
@@ -43,5 +51,10 @@ public class GhostAI : MonoBehaviour
             GameControl.control.health -= 1;
             player.transform.position = player.GetComponent<PlayerBehaviour>().respawnPoint;
         }
+    }
+
+    public void Respawn()
+    {
+        resp = true;
     }
 }

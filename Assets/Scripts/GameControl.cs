@@ -59,6 +59,18 @@ public class GameControl : MonoBehaviour
         }
         else
         {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Jellyfish");
+            for(int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<JellyfishAI>().Respawn();
+            }
+
+            enemies = GameObject.FindGameObjectsWithTag("Ghost");
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                enemies[i].GetComponent<GhostAI>().Respawn();
+            }
+
             player.transform.position = player.GetComponent<PlayerBehaviour>().respawnPoint;
         }
     }
