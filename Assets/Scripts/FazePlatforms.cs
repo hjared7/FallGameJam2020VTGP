@@ -19,22 +19,28 @@ public class FazePlatforms : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timer > 0f)
+        if (GameControl.control.IsDimension(1))
         {
-            timer -= Time.deltaTime;
-        }
-        if (timer <= 0f)
-        {
-            swap = !visible;
-            timer = 2f;
-        }
+            if (timer > 0f)
+            {
+                timer -= Time.deltaTime;
+            }
+            if (timer <= 0f)
+            {
+                swap = !visible;
+                timer = 2f;
+            }
 
-        if(visible != swap)
-        {
-            fazeTiles.SetActive(swap);
-            visible = swap;
+            if (visible != swap)
+            {
+                fazeTiles.SetActive(swap);
+                visible = swap;
+            }
         }
+        else
+        {
+            fazeTiles.SetActive(false);
+        }
+            
     }
-
-
 }
