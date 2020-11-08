@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class Dimension : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject player;
+    public Camera cam;
+
+    public Color dimensionColor;
+    public int midairJumps = 0;
+    public float jumpSpeed = 6f;
+    public float gravity = 1f;
+
+    private PlayerBehaviour pb;
+    private Rigidbody2D rb;
+
+    void Awake()
     {
-        
+        pb = player.GetComponent<PlayerBehaviour>();
+        rb = player.GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Activate()
     {
-        
+        cam.backgroundColor = dimensionColor;
+        pb.midairJumps = this.midairJumps;
+        pb.jumpSpeed = this.jumpSpeed;
+        rb.gravityScale = gravity;
     }
+
+
 }

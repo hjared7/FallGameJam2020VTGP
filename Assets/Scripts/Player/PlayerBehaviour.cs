@@ -9,11 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     //Checks to see if a player has entered a ghost's radius
     public bool ghostTrigger = false;
     public bool jellyTrigger = false;
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
     //Number of jumps that the player can do before landing on the ground.
     public int midairJumps = 1;
     //Velocity of the the player when it jumps.
@@ -23,10 +19,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     //Bone to throw
     public GameObject projectile;
-<<<<<<< HEAD
-    public int projectileNumber = 3;
-=======
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -47,11 +39,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         //Get player movement.
         moveDirection = Input.GetAxisRaw("Horizontal");
-<<<<<<< HEAD
         if(!moveDirection.Equals(0.0f))
-=======
-        if (!moveDirection.Equals(0.0f))
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
         {
             lookDirection = moveDirection;
             anim.SetBool("IsRunning", true);
@@ -78,12 +66,7 @@ public class PlayerBehaviour : MonoBehaviour
             vertical = rb.velocity.y;
         }
 
-        //Throw bone
-<<<<<<< HEAD
-        if (Input.GetKeyDown(KeyCode.Space) && projectileNumber > 0)
-=======
         if (Input.GetKeyDown(KeyCode.Space) && GameControl.control.ammo > 0)
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
         {
             launch();
         }
@@ -107,24 +90,15 @@ public class PlayerBehaviour : MonoBehaviour
     void FixedUpdate()
     {
         //Sets the player's new velocity.
-<<<<<<< HEAD
-        rb.velocity = new Vector2(moveDirection*runSpeed*Time.fixedDeltaTime, vertical);
-        jumped = false;
-=======
         rb.velocity = new Vector2(moveDirection * runSpeed * Time.fixedDeltaTime, vertical);
         jumped = false;
         anim.SetBool("Jumped", false);
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
     }
 
     //Throw bone
     private void launch()
     {
-<<<<<<< HEAD
-        projectileNumber--;
-=======
         GameControl.control.ammo--;
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
         GameObject projectileObject = Instantiate(projectile, rb.position + Vector2.up * 0.1f + Vector2.right * lookDirection, Quaternion.identity);
         projectileObject.GetComponent<BoneBehaviour>().throwDirection = lookDirection;
     }
@@ -137,10 +111,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             jumped = true;
             vertical = jumpSpeed;
-<<<<<<< HEAD
-=======
             anim.SetBool("Jumped", true);
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
         }
 
         //Midair jump.
@@ -149,10 +120,7 @@ public class PlayerBehaviour : MonoBehaviour
             jumped = true;
             currentJumps++;
             vertical = jumpSpeed;
-<<<<<<< HEAD
-=======
             anim.SetBool("Jumped", true);
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
         }
 
         //No jumps left.
@@ -166,10 +134,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool grounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, LayerMask.GetMask("Ground"));
-<<<<<<< HEAD
-=======
         anim.SetBool("Grounded", hit);
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
         return hit;
     }
 
@@ -179,21 +144,12 @@ public class PlayerBehaviour : MonoBehaviour
         if (other.CompareTag("Ghost"))
         {
             ghostTrigger = true;
-<<<<<<< HEAD
-        }else if (other.CompareTag("Jellyfish"))
-=======
         }
         else if (other.CompareTag("Jellyfish"))
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
         {
             jellyTrigger = true;
         }
 
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -206,8 +162,4 @@ public class PlayerBehaviour : MonoBehaviour
             jellyTrigger = false;
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 40e1c09eb85c6197256dcc1c07fbdcc6a407f64e
