@@ -146,3 +146,5 @@ MonoBehaviour:
   bonesGiven: 2
   frequency: 0.75
   amplitude: 0.25
+  particles: {fileID: 4006492006790876906, guid: f7c849728d713aa4f842766f1fb765f6,
+    type: 3}

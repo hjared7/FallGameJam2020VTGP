@@ -504,7 +504,7 @@ PrefabInstance:
     - target: {fileID: 3728743437292082734, guid: 2359ba6246fb71d4ca196e20e98c8ddc,
         type: 3}
       propertyPath: midairJumps
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3728743437292082734, guid: 2359ba6246fb71d4ca196e20e98c8ddc,
         type: 3}

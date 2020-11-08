@@ -7,6 +7,7 @@ public class MilkBehaviour : MonoBehaviour
     public int bonesGiven;
     public float frequency = 0.5f;
     public float amplitude = 1f;
+    public GameObject particles;
 
     private Vector3 tempPos;
     private Vector3 originalPos;
@@ -22,5 +23,15 @@ public class MilkBehaviour : MonoBehaviour
         tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * frequency) * amplitude;
 
         transform.position = tempPos;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Player"))
+        {
+            GameControl.control.health++;
+            Instantiate(particles, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 }
