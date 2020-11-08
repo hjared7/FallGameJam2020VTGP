@@ -5,7 +5,6 @@ using UnityEngine;
 public class GhostAI : MonoBehaviour
 {
     float moveSpeed = 1;
-    bool triggered = false;
 
     Vector3 direction;
     float distance;
