@@ -4,24 +4,21 @@ using UnityEngine;
 
 public class JellyfishAI : MonoBehaviour
 {
-    Transform transform;
     Transform target;
     Rigidbody2D rb;
 
     public Transform whatTheFuck;
 
-    RaycastHit2D hit;
-
-    Vector3 direction;
-
     float moveSpeed = 1.5f;
-    float distance;
-    
+
+    private Vector3 pos;
+    private bool resp;
 
     // Start is called before the first frame update
     void Awake()
     {
-        transform = GetComponent<Transform>();
+        resp = false;
+        pos = transform.position;
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
@@ -29,6 +26,12 @@ public class JellyfishAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (resp)
+        {
+            transform.position = pos;
+            resp = false;
+        }
+
         Debug.DrawRay(transform.position, target.position - transform.position);
         whatTheFuck = Physics2D.Raycast(transform.position, target.position - transform.position).transform;
         if (Physics2D.Raycast(transform.position, target.position - transform.position).transform.tag != "Solid")
@@ -40,5 +43,10 @@ public class JellyfishAI : MonoBehaviour
         {
             rb.velocity = new Vector2(0, 0);
         }
+    }
+
+    public void Respawn()
+    {
+        resp = true;
     }
 }

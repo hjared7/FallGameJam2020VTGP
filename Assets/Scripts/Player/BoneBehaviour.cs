@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -32,16 +31,13 @@ public class BoneBehaviour : MonoBehaviour
     // Basic collision logic.
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("yo");
         if(collision.gameObject.layer == 8)
         {
-            Debug.Log("ground");
             Destroy(this.gameObject);
         }
         
         else if(collision.gameObject.tag == "Jellyfish")
         {
-            Debug.Log("jelly");
             //Remove enemy health or destroy them
             Destroy(collision.gameObject);
             Destroy(this.gameObject);

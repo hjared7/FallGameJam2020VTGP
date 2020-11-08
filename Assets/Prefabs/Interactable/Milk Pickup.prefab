@@ -148,3 +148,4 @@ MonoBehaviour:
   amplitude: 0.25
   particles: {fileID: 4006492006790876906, guid: f7c849728d713aa4f842766f1fb765f6,
     type: 3}
+  SFX: {fileID: 8920895122561828634, guid: a9c7d5e5a33f1434b91b4172bd8f89ee, type: 3}
