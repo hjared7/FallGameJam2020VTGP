@@ -7,9 +7,15 @@ public class GravestoneBehaviour : MonoBehaviour
 
     public GameObject graveController;
 
+    private GraveController gc;
+
+    void Awake()
+    {
+        gc = graveController.GetComponent<GraveController>();
+    }
+
     public void ChangeDimension()
     {
-        Debug.Log("Change Dimension");
-        //TODO
+        gc.SwitchDimension();
     }
 }
