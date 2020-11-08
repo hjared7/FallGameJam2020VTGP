@@ -663,12 +663,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 37515287}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2027543739 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2429283087815569570, guid: 4095ed87cb599b947bcfef4ae26b26e6,
-    type: 3}
-  m_PrefabInstance: {fileID: 2429283086081829913}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2104571957
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,21 +772,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2027543740, guid: 4095ed87cb599b947bcfef4ae26b26e6, type: 3}
+      propertyPath: dimensions.Array.data[0]
+      value: 
+      objectReference: {fileID: 655923445}
+    - target: {fileID: 2027543740, guid: 4095ed87cb599b947bcfef4ae26b26e6, type: 3}
+      propertyPath: dimensions.Array.data[1]
+      value: 
+      objectReference: {fileID: 2104571957}
     - target: {fileID: 2429283087815569570, guid: 4095ed87cb599b947bcfef4ae26b26e6,
         type: 3}
       propertyPath: m_Name
       value: Grave Controller
       objectReference: {fileID: 0}
-    - target: {fileID: 2429283087815569572, guid: 4095ed87cb599b947bcfef4ae26b26e6,
-        type: 3}
-      propertyPath: dimensions.Array.data[0]
-      value: 
-      objectReference: {fileID: 655923445}
-    - target: {fileID: 2429283087815569572, guid: 4095ed87cb599b947bcfef4ae26b26e6,
-        type: 3}
-      propertyPath: dimensions.Array.data[1]
-      value: 
-      objectReference: {fileID: 2104571957}
     - target: {fileID: 2429283087815569573, guid: 4095ed87cb599b947bcfef4ae26b26e6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -917,10 +909,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gravestone
       objectReference: {fileID: 0}
-    - target: {fileID: 2528723280199979245, guid: b7f73933906699740a34e99977481356,
-        type: 3}
-      propertyPath: graveController
-      value: 
-      objectReference: {fileID: 2027543739}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7f73933906699740a34e99977481356, type: 3}
