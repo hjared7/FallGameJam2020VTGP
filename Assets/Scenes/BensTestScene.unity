@@ -1246,7 +1246,7 @@ PrefabInstance:
         type: 3}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: f9781f8c298486e4fa2fb34a7a57894a, type: 3}
+      objectReference: {fileID: 8300000, guid: 51c6791423bc97441b58d068569ae874, type: 3}
     - target: {fileID: 3728743437292082735, guid: 2359ba6246fb71d4ca196e20e98c8ddc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1335,7 +1335,7 @@ PrefabInstance:
         type: 3}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: 9ece22ce4d782344090b3a61d78f8076, type: 3}
+      objectReference: {fileID: 8300000, guid: 0aec7fff142153b46b86ef75e0e5b5dc, type: 3}
     - target: {fileID: 3728743437292082735, guid: 2359ba6246fb71d4ca196e20e98c8ddc,
         type: 3}
       propertyPath: m_LocalPosition.x
