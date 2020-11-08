@@ -81,12 +81,11 @@ public class PlayerBehaviour : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(rb.position, new Vector2(lookDirection, 0f), 0.5f, LayerMask.GetMask("Gravestone"));
             if (hit.collider != null)
             {
-                respawnPoint = transform.position;
                 GravestoneBehaviour grave = hit.collider.GetComponent<GravestoneBehaviour>();
                 if (grave != null)
                 {
+                    respawnPoint = grave.transform.position;
                     grave.ChangeDimension();
-                    respawnPoint = transform.position;
                 }
             }
         }
