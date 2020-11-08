@@ -19,7 +19,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     //Bone to throw
     public GameObject projectile;
-    public int projectileNumber = 3;
+    //Use 'GameControl.control.ammo' for ammo
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -67,9 +67,9 @@ public class PlayerBehaviour : MonoBehaviour
             vertical = rb.velocity.y;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && projectileNumber > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && GameControl.control.ammo > 0)
         {
-            projectileNumber--;
+            GameControl.control.ammo--;
             GameObject projectileObject = Instantiate(projectile , rb.position + Vector2.up * 0.1f + Vector2.right * lookDirection, Quaternion.identity);
             projectileObject.GetComponent<BoneBehaviour>().throwDirection = lookDirection;
         }
