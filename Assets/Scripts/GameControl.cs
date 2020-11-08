@@ -39,6 +39,10 @@ public class GameControl : MonoBehaviour
             {
                 dimensions[i].SetActive(false);
             }
+            else
+            {
+                dimensions[i].GetComponent<Dimension>().Activate();
+            }
         }
     }
 
@@ -52,6 +56,7 @@ public class GameControl : MonoBehaviour
                 currentDimension = 0;
             }
             dimensions[currentDimension].SetActive(true);
+            dimensions[currentDimension].GetComponent<Dimension>().Activate();
         }
     }
 }

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  ammo: 0
+  ammo: 3
   dimensions:
   - {fileID: 0}
   - {fileID: 0}
