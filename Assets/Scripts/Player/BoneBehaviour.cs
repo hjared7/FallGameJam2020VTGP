@@ -35,7 +35,7 @@ public class BoneBehaviour : MonoBehaviour
             Destroy(this.gameObject);
         }
         
-        else if(collision.gameObject.layer == 9)
+        else if(collision.gameObject.tag == "Jellyfish")
         {
             //Remove enemy health or destroy them
             Destroy(collision.gameObject);
