@@ -94,6 +94,7 @@ public class PlayerBehaviour : MonoBehaviour
         //Sets the player's new velocity.
         rb.velocity = new Vector2(moveDirection*runSpeed*Time.fixedDeltaTime, vertical);
         jumped = false;
+        anim.SetBool("Jumped", false);
     }
 
     //Throw bone
@@ -112,6 +113,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             jumped = true;
             vertical = jumpSpeed;
+            anim.SetBool("Jumped", true);
         }
 
         //Midair jump.
@@ -120,6 +122,7 @@ public class PlayerBehaviour : MonoBehaviour
             jumped = true;
             currentJumps++;
             vertical = jumpSpeed;
+            anim.SetBool("Jumped", true);
         }
 
         //No jumps left.
@@ -133,6 +136,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool grounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, LayerMask.GetMask("Ground"));
+        anim.SetBool("Grounded", hit);
         return hit;
     }
 
