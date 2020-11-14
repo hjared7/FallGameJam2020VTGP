@@ -28,6 +28,7 @@ public class GallonBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
+            Destroy(GameControl.control.gameObject);
             SceneManager.LoadScene(3);
         }
     }

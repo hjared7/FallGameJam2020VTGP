@@ -60,7 +60,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         //Try to jump if we haven't already.
-        if (Input.GetKeyDown(KeyCode.W) && !jumped)
+        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !jumped)
         {
             jump();
         }
